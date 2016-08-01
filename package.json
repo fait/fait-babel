@@ -1,0 +1,26 @@
+{
+  "name": "fait-babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quarterto/fait-babel.git"
+  },
+  "keywords": [],
+  "author": "Matt Brennan <matt@153.io> (http://blog.153.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quarterto/fait-babel/issues"
+  },
+  "homepage": "https://github.com/quarterto/fait-babel#readme",
+  "dependencies": {
+    "babel-cli": "^6.10.1"
+  },
+  "peerDependencies": {
+    "fait": "^1.0.0"
+  }
+}
