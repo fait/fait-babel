@@ -11,5 +11,5 @@ babel-opts =
 main :: $(~babel-dst-files)
 
 $(~babel-dst-files): $(babel-dst-dir)/%: $(babel-src-dir)/% .babelrc
-	$(mkdir)
+	$(make-target-dir)
 	babel $(babel-opts) -o $@ $<
