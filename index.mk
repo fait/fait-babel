@@ -13,3 +13,11 @@ main :: $(~babel-dst-files)
 $(~babel-dst-files): $(babel-dst-dir)/%: $(babel-src-dir)/% .babelrc
 	$(make-target-dir)
 	babel $(babel-opts) -o $@ $<
+
+babel-install-plugins:
+	bae $(patsubst %, -p %, $(plugins)) $(patsubst %, -s %, $(presets))
+
+babel-remove-plugins:
+	bae -r $(patsubst %, -p %, $(plugins)) $(patsubst %, -s %, $(presets))
+
+.PHONY: babel-install-plugins babel-remove-plugins
