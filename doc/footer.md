@@ -1,2 +1,2 @@
-## licence
+## Licence
 MIT

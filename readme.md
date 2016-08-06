@@ -71,5 +71,5 @@ Extensions that we consider "Javascript source files". `.js` and `.jsx` by defau
 Options to pass to Babel.
 
 
-## licence
+## Licence
 MIT
