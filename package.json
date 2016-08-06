@@ -4,7 +4,8 @@
   "description": "",
   "faitMain": "index.mk",
   "scripts": {
-    "install": "./install.sh"
+    "install": "./install.sh",
+    "preversion": "make && git add -A readme.md"
   },
   "repository": {
     "type": "git",
