@@ -2,7 +2,7 @@
   "name": "fait-babel",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "faitMain": "index.mk",
   "scripts": {
     "install": "./install.sh"
   },
@@ -24,5 +24,9 @@
   },
   "peerDependencies": {
     "fait": "^1.0.0"
+  },
+  "devDependencies": {
+    "fait": "^1.3.0",
+    "fait-doc": "^1.0.0"
   }
 }
