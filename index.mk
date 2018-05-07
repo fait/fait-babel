@@ -1,4 +1,5 @@
-$(eval $(register-npm-bin))
+$(register-npm-bin)
+$(call require, fait-macro)
 
 # Directory to look for source Javascript files (determined by `$(babel-extensions)`).
 babel-src-dir = src
@@ -7,7 +8,7 @@ babel-dst-dir = lib
 # Extensions that we consider "Javascript source files". `.js` and `.jsx` by default.
 babel-extensions = .js .jsx
 
-~babel-extension-find-args = $(patsubst %, -name '*%', $(babel-extensions))
+~babel-extension-find-args = $(patsubst %, -name '*%' -o, $(babel-extensions)) -false
 ~babel-src-files = $(shell find $(babel-src-dir) $(~babel-extension-find-args) 2>/dev/null)
 ~babel-dst-files = $(patsubst $(babel-src-dir)/%, $(babel-dst-dir)/%, $(~babel-src-files))
 
@@ -17,10 +18,7 @@ babel-opts =
 # Default entry target.
 babel: $(~babel-dst-files)
 
-# Compile all `$(babel-src-dir)` Javascript files to `$(babel-dst-dir)`.
-$(~babel-dst-files): $$(babel-dst-dir)/%: $$(babel-src-dir)/% .babelrc
-	$(make-target-dir)
-	babel $(babel-opts) -o $@ $<
+-include $(~module-dir)babel.mk
 
 # Install Babel plugins and write to `.babelrc`. Configured by the variables
 # `$(plugins)` and `$(presets)`, which you should pass on the command line.
@@ -41,3 +39,5 @@ babel-remove-plugins:
 	bae -r $(patsubst %, -p %, $(plugins)) $(patsubst %, -s %, $(presets))
 
 .PHONY: babel-install-plugins babel-remove-plugins
+
+fait-babel-version := $(module-version)

@@ -26,15 +26,11 @@ To add plugins or presets, run `make babel-install-plugins plugins+=plugin prese
 ## Documentation
 ### Rules
 
-#### 📄 `babel` ⬅️ `$(~babel-dst-files)` [🔗](index.mk#L18)
+#### 📄 `babel` ⬅️ `$(~babel-dst-files)` [🔗](index.mk#L19)
 
 Default entry target.
 
-#### 📑 `$(~babel-dst-files)`: `$$(babel-dst-dir)/%` ⬅️ `$$(babel-src-dir)/% .babelrc` [🔗](index.mk#L21)
-
-Compile all `$(babel-src-dir)` Javascript files to `$(babel-dst-dir)`.
-
-#### 📃 `babel-install-plugins` [🔗](index.mk#L35)
+#### 📃 `babel-install-plugins` [🔗](index.mk#L33)
 
 Install Babel plugins and write to `.babelrc`. Configured by the variables
 `$(plugins)` and `$(presets)`, which you should pass on the command line.
@@ -47,26 +43,26 @@ If you install `transform-runtime`, `babel-runtime` is also installed.
 
 Uses [`@quarterto/bae`](https://github.com/quarterto/bae) under the hood.
 
-#### 📃 `babel-remove-plugins` [🔗](index.mk#L40)
+#### 📃 `babel-remove-plugins` [🔗](index.mk#L38)
 
 Same as `babel-install-plugins` but uninstalls and removes things from `.babelrc`
 instead.
 
 ### Variables
 
-#### 🚩 `$(babel-src-dir)` [🔗](index.mk#L4)
+#### 🚩 `$(babel-src-dir)` [🔗](index.mk#L5)
 
 Directory to look for source Javascript files (determined by `$(babel-extensions)`).
 
-#### 🚩 `$(babel-dst-dir)` [🔗](index.mk#L6)
+#### 🚩 `$(babel-dst-dir)` [🔗](index.mk#L7)
 
 Directory to put compiled Javascript files.
 
-#### 🚩 `$(babel-extensions)` [🔗](index.mk#L8)
+#### 🚩 `$(babel-extensions)` [🔗](index.mk#L9)
 
 Extensions that we consider "Javascript source files". `.js` and `.jsx` by default.
 
-#### 🚩 `$(babel-opts)` [🔗](index.mk#L15)
+#### 🚩 `$(babel-opts)` [🔗](index.mk#L16)
 
 Options to pass to Babel.
 

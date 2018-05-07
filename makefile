@@ -7,3 +7,5 @@ fait-doc-header = doc/header.md
 fait-doc-footer = doc/footer.md
 
 main :: doc
+
+blah: ; @:
