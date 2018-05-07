@@ -1,0 +1,12 @@
+~babel-extension-find-args = $(patsubst %, -name '*%' -o, $(babel-extensions)) -false
+~babel-src-files = $(shell find {{babel-src-dir}} $(~babel-extension-find-args) 2>/dev/null)
+~babel-dst-files = $(patsubst {{babel-src-dir}}/%, {{babel-dst-dir}}/%, $(~babel-src-files))
+
+# Compile all `$(babel-src-dir)` Javascript files to `$(babel-dst-dir)`.
+{{babel-dst-dir}}/%: {{babel-src-dir}}/%
+	$(make-target-dir)
+	babel $(babel-opts) -o $@ $<
+
+
+# Default entry target.
+babel: $(~babel-dst-files)
